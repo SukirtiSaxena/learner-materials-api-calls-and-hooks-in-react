@@ -1,4 +1,8 @@
 function Character({ character }) {
+let imgSrc="https://picsum.photos/300/200/?blur";
+if (character.imageUrl) {
+  imgSrc= character.imageUrl.substring(0,character.imageUrl.indexOf('/revision'));
+}
 
   return (
     <article className="character-item">
@@ -9,7 +13,7 @@ function Character({ character }) {
         Add to Favourites
       </div>
 
-      <img className="character-item__img" src={character.imageUrl} alt={character.name} />
+      <img className="character-item__img" src={imgSrc} alt={character.name} />
 
     </article>
   )
