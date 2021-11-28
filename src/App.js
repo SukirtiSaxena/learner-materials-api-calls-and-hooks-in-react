@@ -12,14 +12,16 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const getCharacters = async (pageNumber) => {
-    const apiResponse = await axios.get('http://api.disneyapi.dev/characters?page=${pageNumber}');
-    setCharacters(apiResponse.data.data);
-  }
-
   useEffect(() => {
-    getCharacters(1);
-  }, []);
+    getCharacters(currentPage);
+  }, [currentPage]);
+
+  const getCharacters = async (pageNumber) => {
+    const disneyUrl = 'http://api.disneyapi.dev/characters?page=' + pageNumber;
+    const apiResponse = await axios.get(disneyUrl);
+    console.log("disneyUrl:", disneyUrl);
+    setCharacters(apiResponse.data.data);
+  };
 
   return (
     <div className="page">
