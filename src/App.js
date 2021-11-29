@@ -5,6 +5,7 @@ import Header from './components/Header';
 import CharacterContainer from './components/CharacterContainer';
 import Navigation from './components/Navigation';
 import axios from 'axios';
+export const FavouriteContext = React.createContext();
 
 function App() {
 
@@ -25,13 +26,13 @@ function App() {
   };
 
   return (
-    <div className="page">
-      <Header currentPage={currentPage} />
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <CharacterContainer characters={characters}
-        characterFavourites={characterFavourites}
-        updateFavourites={setCharacterFavourites} />
-    </div>
+    <FavouriteContext.Provider value={characterFavourites}>
+      <div className="page">
+        <Header currentPage={currentPage} />
+        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <CharacterContainer characters={characters} updateFavourites={setCharacterFavourites} />
+      </div>
+    </FavouriteContext.Provider>
   );
 }
 

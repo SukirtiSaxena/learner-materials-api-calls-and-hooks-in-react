@@ -1,4 +1,4 @@
-# Activity 4 - Favouriting characters with useContext
+# Activity 5 - Favouriting characters with useContext
 
 ## Prop drilling
 
