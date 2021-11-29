@@ -1,4 +1,7 @@
+import React, { useState } from "react";
+
 function Navigation({ currentPage, setCurrentPage }) {
+    const [buttonText, setButtonText] = useState("Show Favourites");
 
     const nextPage = () => {
         const newPageNumber = currentPage + 1;
@@ -12,13 +15,21 @@ function Navigation({ currentPage, setCurrentPage }) {
         }
     }
 
+    const favPage = () => {
+        if (buttonText === "Show Favourites")
+            setButtonText("Show All")
+        else
+            setButtonText("Show Favourites");
+    }
+
+
     return (
         <div className="navigation">
             <div className="navigation__item">
                 <button className="navigation__button" onClick={prevPage}>Prev Page</button>
             </div>
             <div className="navigation__item">
-                <button className="navigation__button" onClick={prevPage}>Show Favourites</button>
+                <button className="navigation__button" onClick={favPage}>{buttonText}</button>
             </div>
             <div className="navigation__item">
                 <button className="navigation__button" onClick={nextPage}>Next Page</button>

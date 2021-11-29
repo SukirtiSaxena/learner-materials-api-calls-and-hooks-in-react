@@ -3,12 +3,13 @@ import { FavouriteContext } from '../App';
 
 function Character({ character }) {
   const [characterFavourites, updateFavourites] = useContext(FavouriteContext);
+
   let imgSrc = "https://picsum.photos/300/200/?blur";
   if (character.imageUrl) {
     imgSrc = character.imageUrl.substring(0, character.imageUrl.indexOf('/revision'));
   }
 
-  function toggleFavouriteForCharacter(characterId) {
+  function toggleFavouriteForCharacter(characterId,characterName,characterImgUrl) {
     if (!characterFavourites.includes(characterId)) {
       // add to favourites
       updateFavourites([...characterFavourites, characterId]);
@@ -25,7 +26,7 @@ function Character({ character }) {
 
       <h2>{character.name}</h2>
 
-      <div className="character-item__actions" onClick={() => toggleFavouriteForCharacter(character._id)}>
+      <div className="character-item__actions" onClick={() => toggleFavouriteForCharacter(character._id,character.name,character.imageUrl)}>
         {!characterFavourites.includes(character._id) ? "Add to Favourites" : "Favourited"}
       </div>
 
