@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { FavouriteContext } from '../App';
 
 function Navigation({ currentPage, setCurrentPage, buttonText, setButtonText }) {
-   // const [buttonText, setButtonText] = useState("Show Favourites");
+    // const [buttonText, setButtonText] = useState("Show Favourites");
     const [characterFavourites, setCharacterFavourites] = useContext(FavouriteContext);
 
     const nextPage = () => {
