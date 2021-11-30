@@ -8,8 +8,7 @@ import axios from 'axios';
 export const FavouriteContext = React.createContext([{}, () => { }]);
 
 function App() {
-
-  // Some dummy state representing disney characters
+  
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [characterFavourites, setCharacterFavourites] = useState([]);

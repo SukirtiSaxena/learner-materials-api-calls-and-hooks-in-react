@@ -15,13 +15,10 @@ function Character({ character }) {
       name: characterName,
       imageUrl: characterImgUrl,
     }
-    //if (!characterFavourites.includes(characterId)) {
     if (!characterFavourites.some(e => e._id === favourite._id)) {
-      // add to favourites
       setCharacterFavourites([...characterFavourites, favourite]);
     }
     else {
-      //  remove from favourites
       const updatedFavourites = characterFavourites.filter((id) => id._id !== favourite._id);
       setCharacterFavourites(updatedFavourites);
     }
