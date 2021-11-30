@@ -10,9 +10,15 @@ function Character({ character }) {
   }
 
   function toggleFavouriteForCharacter(characterId, characterName, characterImgUrl) {
+    const favourite = {
+      _id: characterId,
+      name: characterName,
+      imageUrl: characterImgUrl,
+    }
     if (!characterFavourites.includes(characterId)) {
       // add to favourites
-      setCharacterFavourites([...characterFavourites, characterId, characterName, characterImgUrl]);
+      if (characterFavourites.filter((id) => id !== characterId))
+        setCharacterFavourites([...characterFavourites, favourite]);
     }
     else {
       //  remove from favourites
