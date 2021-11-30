@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FavouriteContext } from '../App';
 
 function Character({ character }) {
-  const [characterFavourites, updateFavourites] = useContext(FavouriteContext);
+  const [characterFavourites, setCharacterFavourites] = useContext(FavouriteContext);
 
   let imgSrc = "https://picsum.photos/300/200/?blur";
   if (character.imageUrl) {
@@ -12,12 +12,12 @@ function Character({ character }) {
   function toggleFavouriteForCharacter(characterId, characterName, characterImgUrl) {
     if (!characterFavourites.includes(characterId)) {
       // add to favourites
-      updateFavourites([...characterFavourites, characterId]);
+      setCharacterFavourites([...characterFavourites, characterId, characterName, characterImgUrl]);
     }
     else {
       //  remove from favourites
       const updatedFavourites = characterFavourites.filter((id) => id !== characterId);
-      updateFavourites(updatedFavourites);
+      setCharacterFavourites(updatedFavourites);
     }
   }
 

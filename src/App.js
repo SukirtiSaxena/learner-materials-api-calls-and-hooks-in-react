@@ -13,6 +13,7 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [characterFavourites, setCharacterFavourites] = useState([]);
+  const [buttonText, setButtonText] = useState("Show Favourites");
 
   useEffect(() => {
     getCharacters(currentPage);
@@ -28,8 +29,8 @@ function App() {
     <FavouriteContext.Provider value={[characterFavourites, setCharacterFavourites]}>
       <div className="page">
         <Header currentPage={currentPage} />
-        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <CharacterContainer characters={characters} />
+        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} buttonText ={buttonText} setButtonText={setButtonText}/>
+        <CharacterContainer characters={buttonText === "Show Favourites" ? characters:characterFavourites}/>
       </div>
     </FavouriteContext.Provider>
   );
