@@ -16,12 +16,8 @@ function Navigation({ currentPage, setCurrentPage }) {
     }
 
     const favPage = () => {
-        if (buttonText === "Show Favourites")
-            setButtonText("Show All")
-        else
-            setButtonText("Show Favourites");
+        buttonText === "Show Favourites" ? setButtonText("Show All") : setButtonText("Show Favourites");
     }
-
 
     return (
         <div className="navigation">

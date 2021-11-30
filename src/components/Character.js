@@ -9,7 +9,7 @@ function Character({ character }) {
     imgSrc = character.imageUrl.substring(0, character.imageUrl.indexOf('/revision'));
   }
 
-  function toggleFavouriteForCharacter(characterId,characterName,characterImgUrl) {
+  function toggleFavouriteForCharacter(characterId, characterName, characterImgUrl) {
     if (!characterFavourites.includes(characterId)) {
       // add to favourites
       updateFavourites([...characterFavourites, characterId]);
@@ -26,7 +26,7 @@ function Character({ character }) {
 
       <h2>{character.name}</h2>
 
-      <div className="character-item__actions" onClick={() => toggleFavouriteForCharacter(character._id,character.name,character.imageUrl)}>
+      <div className="character-item__actions" onClick={() => toggleFavouriteForCharacter(character._id, character.name, character.imageUrl)}>
         {!characterFavourites.includes(character._id) ? "Add to Favourites" : "Favourited"}
       </div>
 
