@@ -20,6 +20,7 @@ function Navigation({ currentPage, setCurrentPage, buttonText, setButtonText }) 
     const favPage = () => {
         buttonText === "Show Favourites" ? setButtonText("Show All") : setButtonText("Show Favourites");
         console.log("Fav chars:", characterFavourites);
+        setCurrentPage(1);
         setCharacterFavourites(characterFavourites);
     }
 
