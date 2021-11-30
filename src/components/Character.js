@@ -17,7 +17,6 @@ function Character({ character }) {
     }
     if (!characterFavourites.includes(characterId)) {
       // add to favourites
-      if (characterFavourites.filter((id) => id !== characterId))
         setCharacterFavourites([...characterFavourites, favourite]);
     }
     else {
