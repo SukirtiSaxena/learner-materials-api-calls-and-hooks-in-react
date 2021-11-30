@@ -15,7 +15,8 @@ function Character({ character }) {
       name: characterName,
       imageUrl: characterImgUrl,
     }
-    if (!characterFavourites.includes(characterId)) {
+    //if (!characterFavourites.includes(characterId)) {
+      if (!characterFavourites.some(e => e._id === favourite._id )) {
       // add to favourites
         setCharacterFavourites([...characterFavourites, favourite]);
     }
